@@ -13,7 +13,7 @@ namespace StackDataStructure {
   class Stack
   {
   private:
-    item<T> topElement;
+    item<T>* topElement;
   public:
     Stack()
     {
@@ -22,23 +22,23 @@ namespace StackDataStructure {
 
     void putValue(T value)
     {
-      item<T> newElement;
-      newElement.value = value;
-      newElement.nextItem = &topElement;
-      topElement = newElement;
+      item<T>* oldElement = topElement;
+      topElement = new item<T>;
+      topElement->value = value;
+      topElement->nextItem = oldElement;
     };
 
     T popValue()
     {
-      T valueToBePopped = topElement.value;
-      item<T> nextItem = *topElement.nextItem;
+      T valueToBePopped = topElement->value;
+      item<T>* nextItem = topElement->nextItem;
       topElement = nextItem;
       return valueToBePopped;
     };
 
     T readTopValue()
     {
-      return topElement.value;
+      return topElement->value;
     };
 
   };

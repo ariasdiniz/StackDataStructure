@@ -11,7 +11,11 @@ int main()
   cout << "Top element val: " << stack.readTopValue() << endl;
   stack.putValue(2);
   cout << "Top element val: " << stack.readTopValue()<< endl;
+  stack.putValue(3);
+  cout << "Top element val: " << stack.readTopValue()<< endl;
   int poppedVal = stack.popValue();
+  cout << "Popped val: " << poppedVal << endl;
+  poppedVal = stack.popValue();
   cout << "Popped val: " << poppedVal << endl;
   cout << "Top element val: " << stack.readTopValue()<< endl;
   return 0;
